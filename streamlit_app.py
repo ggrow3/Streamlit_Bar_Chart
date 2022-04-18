@@ -89,8 +89,6 @@ elif option == 'Altair Bar Chart with Custom Colors':
 
 elif option == 'Altair Chart With Stacked Bars':
    
-   
-
     bar_chart = alt.Chart(energy_source).mark_bar().encode(
         x="month(Date):O",
         y="sum(Price ($)):Q",
@@ -114,16 +112,15 @@ elif option == 'Altair Chart With Stacked Bars':
     st.altair_chart(bar_chart, use_container_width=True)'''
     st.code(code, language='python')
 elif option == 'Altair Bar Chart Horizontal':
-    "Altair Bar Chart Horizontal"
-  
-    bar_chart = alt.Chart(energy_source).mark_bar().encode(
+   "Energy Costs By Month"
+   bar_chart = alt.Chart(energy_source).mark_bar().encode(
         y="month(Date):O",
         x="sum(Price ($)):Q",
         color="EnergyType:N"
     )
-    st.altair_chart(bar_chart, use_container_width=True)
+   st.altair_chart(bar_chart, use_container_width=True)
 
-    code = ''' 
+   code = ''' 
     "Energy Costs By Month"
     source = pd.DataFrame({
     "EnergyType": ["Electricity","Gasoline","Natural Gas","Electricity","Gasoline","Natural Gas","Electricity","Gasoline","Natural Gas"],
@@ -137,14 +134,13 @@ elif option == 'Altair Bar Chart Horizontal':
         color="EnergyType:N"
     )
     st.altair_chart(bar_chart, use_container_width=True)'''
-    st.code(code, language='python')
+   st.code(code, language='python')
 
 elif option == 'Altair Bar Chart Sort':
     source = pd.DataFrame({
         "Price ($)": [10, 15, 20],
         "Month": ["January", "February", "March"]
- 
-     })
+      })
 
     bar_chart = alt.Chart(source).mark_bar().encode(
         x="sum(Price ($)):Q",
